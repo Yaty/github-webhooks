@@ -34,9 +34,11 @@ getConfig(function (config) {
             if (req.body.ref && req.body.ref === `refs/heads/${branch}`) {
 
                 console.log('Valid payload! Running commands');
+                
+                res.status(200).send();
 
                 deployTasks.run(function () {
-                    res.status(200).send();
+                    console.log("Done");
                 });
 
             } else {
